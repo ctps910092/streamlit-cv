@@ -1,10 +1,4 @@
 import streamlit as st
-from PIL import Image, ImageEnhance
-
-def adjust_brightness(image_path, brightness_factor):
-    image = Image.open(image_path)
-    enhancer = ImageEnhance.Brightness(image)
-    return enhancer.enhance(brightness_factor)
 
 st.set_page_config(
     page_title="Resume",
@@ -40,32 +34,52 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 with st.sidebar:
-    st.title("Resume")
+    st.markdown("<h1 style='text-align: center; font-size: 50px;'>Resume</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; font-size: 45px;'>Shih-Ying Chen</h1>", unsafe_allow_html=True)
     st.subheader("Machine Learning Engineer, Data Scientist")
     st.image("static/profile.jpg")
 
-    col1, col2 = st.columns([0.5, 5]) 
-    with col1:
-        st.image("static/user.png") 
-    with col2:
-        st.write("Shih-Ying Chen")
-    
-    col1, col2 = st.columns([0.5, 5])
-    with col1:
-        st.image("static/mail.png") 
-    with col2:
-        st.write("shihying0516@gmail.com")
-    
-    col1, col2 = st.columns([0.5, 5])
-    with col1:
-        st.image("static/telephone.png") 
-    with col2:
-        st.write("+886 938599730")
+    st.markdown(
+        """
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <div style="flex: 0.5;">
+                <img src="https://i.imgur.com/YwLlSqD.png" alt="LinkedIn" style="width: 40px;">
+            </div>
+            <div style="flex: 5; margin-left: 10px;">
+                <a href="https://www.linkedin.com/in/shihying-chen/" target="_blank" style="text-decoration: none; color: inherit;">
+                    https://www.linkedin.com/in/shihying-chen/
+                </a>
+            </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <div style="flex: 0.5;">
+                <img src="https://i.imgur.com/jl9glQL.png" alt="Mail" style="width: 40px;">
+            </div>
+            <div style="flex: 5; margin-left: 10px;">
+                <a href="mailto:shihying0516@gmail.com" style="text-decoration: none; color: inherit;">
+                    shihying0516@gmail.com
+                </a>
+            </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <div style="flex: 0.5;">
+                <img src="https://i.imgur.com/v2SeKrc.png" alt="Telephone" style="width: 40px;">
+            </div>
+            <div style="flex: 5; margin-left: 10px;">
+                +886 938599730
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 
-    st.subheader("Certification")
+    st.markdown("<h1 style='text-align: center; font-size: 30px;'>Certification</h1>", unsafe_allow_html=True)
     st.image("static/Certification.png", caption="Google Digital Talent Exploration")
-    st.subheader("Skills")
+    st.markdown("<h1 style='text-align: center; font-size: 30px;'>Skills</h1>", unsafe_allow_html=True)
+
     st.write("""
     - Programming Languages: Python (NumPy, Pandas), Golang
     - ML Frameworks & Tools: TensorFlow, PyTorch, Scikit-learn
@@ -76,8 +90,8 @@ with st.sidebar:
 
 st.markdown('<div class="main">', unsafe_allow_html=True)  # Start of the custom container
 st.title("Education")
-st.write("**National Changhua University of Education**")
-st.write("Master of Science, Statistics and Information Science")
+st.subheader("National Changhua University of Education")
+st.write("**Master of Science, Statistics and Information Science**")
 st.write("Sep 2019 - Jul 2021")
 st.write("**Related Courses:** Artificial Intelligence, Machine Learning, Deep Learning, Data Science, Statistics")
 
